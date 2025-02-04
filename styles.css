@@ -1,0 +1,67 @@
+/* Mantenha todos os estilos originais e adicione: */
+
+.game-container {
+    margin: 50px auto;
+    width: 900px;
+    transform: perspective(1000px) rotateX(10deg);
+}
+
+.game-board {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+#gameCanvas {
+    border: 3px solid var(--neon-blue);
+    border-radius: 10px;
+    box-shadow: 0 0 30px var(--hologram-1);
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.game-info {
+    flex: 1;
+}
+
+.score-display {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--matrix-green);
+    border-radius: 10px;
+    font-size: 1.5em;
+    color: var(--matrix-green);
+    text-shadow: 0 0 10px var(--matrix-green);
+}
+
+.controls-info {
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--cyber-purple);
+    border-radius: 10px;
+}
+
+.controls-info p {
+    color: var(--neon-blue);
+    margin: 15px 0;
+    font-size: 1.1em;
+}
+
+.controls-info i {
+    margin-right: 10px;
+    color: var(--cyber-purple);
+}
+
+/* Adicione ao final do CSS existente */
+#gameOver {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 100;
+}
+
+.game-active #gameOver {
+    display: block;
+}

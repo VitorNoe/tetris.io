@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #7ec8e3 0%, #1c6e8c 100%);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #e0f4fe;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    display: flex;
+    gap: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+canvas#game {
+    background: rgba(0, 40, 60, 0.4);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.score-board h2 {
+    margin: 10px 0;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.next-piece {
+    margin: 20px 0;
+    background: rgba(0, 30, 50, 0.3);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+canvas#next {
+    background: transparent;
+    margin-top: 10px;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.aero-button {
+    background: linear-gradient(145deg, #8fd8f0, #6cb4d4);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.aero-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.background-bubbles {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* Adicione bolhas animadas via JavaScript */
+}

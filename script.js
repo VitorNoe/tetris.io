@@ -1,3 +1,5 @@
+let isGameRunning = false;
+const MAX_HIGHSCORES = 5;
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const nextCanvas = document.getElementById('next');
@@ -162,6 +164,24 @@ function clearLines() {
     }
 }
 
+function gameOver() {
+    cancelAnimationFrame(gameLoop);
+    updateHighscores();
+    document.querySelector('.start-screen').style.display = 'flex';
+    isGameRunning = false;
+    alert(`Game Over! Score: ${score}`);
+}
+
+function updateHighscores() {
+    let highscores = JSON.parse(localStorage.getItem('tetrisHighscores')) || [];
+    highscores.push(score);
+    highscores = [...new Set(highscores)].sort((a, b) => b - a).slice(0, MAX_HIGHSCORES);
+    localStorage.setItem('tetrisHighscores', JSON.stringify(highscores));
+    
+    const list = document.getElementById('highscores-list');
+    list.innerHTML = highscores.map(score => `<li>${score}</li>`).join('');
+}
+
 function update(time = 0) {
     const deltaTime = time - lastTime;
     lastTime = time;
@@ -188,6 +208,19 @@ function update(time = 0) {
     drawBoard();
     gameLoop = requestAnimationFrame(update);
 }
+
+document.getElementById('start').addEventListener('click', () => {
+    document.querySelector('.start-screen').style.display = 'none';
+    if(!isGameRunning) {
+        board = Array(BOARD_HEIGHT).fill().map(() => Array(BOARD_WIDTH).fill(0));
+        score = 0;
+        level = 1;
+        currentPiece = createNewPiece();
+        nextPiece = createNewPiece();
+        isGameRunning = true;
+        update();
+    }
+});
 
 document.addEventListener('keydown', event => {
     switch(event.keyCode) {
